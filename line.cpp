@@ -47,26 +47,21 @@ int main()
     bool running = true;
     SDL_Event event;
     while (running) {
-        // Handle events
         while (SDL_PollEvent(&event)) {
             if (event.type == SDL_QUIT) {
                 running = false;
             }
         }
 
-        // Clear screen
         SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255); // Black background
         SDL_RenderClear(renderer);
 
-        // Draw line
         SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255); // White color
         drawLine(renderer, 100, 100, 700, 500); // Example line
 
-        // Present the framebuffer
         SDL_RenderPresent(renderer);
     }
 
-     // Cleanup
      SDL_DestroyRenderer(renderer);
      SDL_DestroyWindow(window);
      SDL_Quit();
